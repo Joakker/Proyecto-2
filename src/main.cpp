@@ -1,14 +1,24 @@
-#include "PriorityQueue.h"
+#include <bits/stdc++.h>
+#include "LinkedList.h"
 
-int main(int argc, char* argv[]) {
-    PriorityQueue pq = PriorityQueue();
-    std::vector<int> a = {1, 2, 3, 4, 5, 6, 8};
-    for (int n: a)
-        pq.push(n);
-    while (!pq.empty()) {
-        std::cout << pq.top() << " ";
-        pq.pop();
-    }
-    std::cout << std::endl;
-    return 0;
+
+
+using namespace std;
+
+
+int main(){
+
+	LinkedList ll;
+
+	ll.addFront(5);
+	ll.addFront(5);
+	ll.addBack(19);
+
+	ll.printForward();
+	cout << endl;
+	ll.printReverse();
+	cout << endl;
+
+
+	return 0;
 }
