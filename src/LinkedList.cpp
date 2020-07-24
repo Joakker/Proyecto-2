@@ -108,3 +108,33 @@ void LinkedList::printForward(){
 		nd = nd->next;
 	}
 }
+
+LinkedList::iterator::self_type LinkedList::iterator::operator++() {
+	self_type i = *this;
+	ptr_ = ptr_->next;
+	return i;
+}
+
+int& LinkedList::iterator::operator*() {
+	return ptr_->data;
+}
+
+bool LinkedList::iterator::operator==(const LinkedList::iterator::self_type& rhs) {
+	return ptr_ == rhs.ptr_;
+}
+
+bool LinkedList::iterator::operator!=(const LinkedList::iterator::self_type& rhs) {
+	return ptr_ != rhs.ptr_;
+}
+
+LinkedList::iterator LinkedList::begin() {
+	return iterator(header->next);
+}
+
+LinkedList::iterator LinkedList::end() {
+	return iterator(trailer->prev);
+}
+
+LinkedList::iterator::iterator(Nodo* n) {
+	this->ptr_ = n;
+}

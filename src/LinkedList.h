@@ -21,7 +21,22 @@ public:
 	void removeBack();
 	void printReverse();
 	void printForward();
+	
+	class iterator {
+	public:
+		typedef iterator self_type;
+		typedef Nodo* pointer;
+		self_type operator++();
+		int& operator*();
+		bool operator==(const self_type&);
+		bool operator!=(const self_type&);
+		iterator(Nodo*);
+	private:
+		pointer ptr_;
+	};
 
+	iterator begin();
+	iterator end();
 private:
 	Nodo *header;
 	Nodo *trailer;

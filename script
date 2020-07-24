@@ -1,0 +1,6 @@
+#!/usr/bin/python3
+
+from random import randint
+
+with open('input', 'w') as file:
+    file.write(' '.join(str(randint(1, 27)) for _ in range(100)))
