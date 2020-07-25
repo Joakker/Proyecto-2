@@ -138,3 +138,7 @@ LinkedList::iterator LinkedList::end() {
 LinkedList::iterator::iterator(Nodo* n) {
 	this->ptr_ = n;
 }
+
+LinkedList::iterator LinkedList::iterator::operator+(int n) {
+	return iterator(this->ptr_->next);
+}

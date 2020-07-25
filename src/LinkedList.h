@@ -28,6 +28,7 @@ public:
 		typedef Nodo* pointer;
 		self_type operator++();
 		int& operator*();
+		iterator operator+(int);
 		bool operator==(const self_type&);
 		bool operator!=(const self_type&);
 		iterator(Nodo*);
