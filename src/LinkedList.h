@@ -32,6 +32,7 @@ public:
 		bool operator==(const self_type&);
 		bool operator!=(const self_type&);
 		iterator(Nodo*);
+		iterator();
 	private:
 		pointer ptr_;
 	};

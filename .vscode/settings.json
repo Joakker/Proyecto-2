@@ -1,6 +1,9 @@
 {
     "files.associations": {
         "vector": "cpp",
-        "hash_map": "cpp"
+        "hash_map": "cpp",
+        "bitset": "cpp",
+        "complex": "cpp",
+        "functional": "cpp"
     }
 }

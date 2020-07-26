@@ -1,21 +1,16 @@
 #include <bits/stdc++.h>
-
-struct Entry {
-    int                 key;
-    std::pair<int, int> value;
-};
+#include "Pair.h"
 
 class PriorityQueue {
     private:
-        std::vector<Entry>    _arr;
+        std::vector<Pair>    _arr;
         void    max_heapify(long unsigned int);
     public:
         PriorityQueue();
         ~PriorityQueue();
         bool    empty();
         int     size();
-        Entry   top();
-        void    push(int, std::pair<int,int>);
+        Pair    top();
+        void    push(Pair);
         void    pop();
-        void    increase_key(std::pair<int,int>);
 };
