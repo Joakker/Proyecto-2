@@ -1,51 +1,105 @@
 #include <bits/stdc++.h>
 #include "LinkedList.h"
-#include "PriorityQueue.h"
+
 
 
 using namespace std;
+int ContarPosiblesPares(std::map<pair<int,int>, int> mapar,int nel);
+pair<int,int> EncontrarParMasFrecuente(std::map<pair<int,int>, int> mapar,int nel);
 
 
-#define AVAILABLE_CODE	++sigma
-
-
-int main(int argc, char* argv[]){
-	int n;
-	int sigma = argc == 1? 27: std::stoi(argv[1]);
-	LinkedList 					ll;
-	PriorityQueue 				pq;
-	map<pair<int, int>, Pair>	hash;
-
-	while (cin >> n) {
-		ll.addBack(n);
+int main(){
+	int nel,num;
+	cout<< "Ingrese el numero de elementos que tendra la secuencia aleatoria:" << endl;
+	cin >> nel;
+	cout<< "Ingrese el rango que tendran los numeros creados" << endl;
+	cin >> num;
+	LinkedList ll;
+	srand(time(0));
+	for(int i=0; i<nel ;i++){
+		ll.addBack((rand()%num)+1);
 	}
 
-	for (int i = 1; i <= sigma; i++) {
-		for (int j = 1; j <= sigma; j++) {
-			hash[{i, j}] = Pair({i, j},0);
-		}
-	}
+	pair<int, int> par;
+	pair<int, int> ref (0,0);
+	
+/*  ll.addFront(5);
+	ll.addFront(5);
+	ll.addBack(19);
+*/
+	ll.printForward();
+	
+/*
+	ll.printReverse();
+	cout << endl;
+	par = make_pair(ll.getFront(), ll.getFront());
 
-	for (LinkedList::iterator i = ll.begin(); i != ll.end(); ++i) {
-		pair<int, int> p = make_pair(*i, *(i + 1));
-		if (hash[p].freq == 0) {
-			hash[p].first = LinkedList::iterator(i);
-		}
-		hash[p].freq++;
-		hash[p].last = LinkedList::iterator(i);
-	}
+	cout << par.first << "  " << par.second << endl;
+ */
+	map<pair<int,int>, int> mapar;
 
-	for (map<pair<int,int>,Pair>::iterator i = hash.begin(); i != hash.end(); i++) {
-		if ((*i).second.freq > 1) {
-			pair<int,int> p = (*i).first;
-			pq.push(Pair(p, (*i).second.freq));
-		}
-	}
+	/*mapar[{ll.getFront(),ll.getBack()}] = 3;
+	mapar[{2,4}] = 6;
+	mapar[{14,4}] = 1;
+	mapar[{3,4}] = 8;
+   */
+ 	//for(map<pair<int,int>, int>:: iterator map = mapar.begin(); map != mapar.end();map++){
+ 	//	cout <<"{" << map->first.first << "," << map->first.second << "}" << " " << map->second << endl;
+ 		
+ 	//}
+ 	//map<pair<int,int>,int>::iterator map = mapar.find({ll.getFront(),ll.getBack()}); Encontrar una clave
+ 	/*if(map!=mapar.end()){
+ 		
+ 		cout << map->first.first << " " << map->first.second << " " << map->second << endl;
+ 	}*/
 
-	while (!pq.empty()) {
-		Pair p = pq.top();
-		;
-		pq.pop();
-	}
+ 	//for(int i = 1; i < nel+1; i++){
+ 	//	for(int j = 1; j < nel+1; j++){
+ 	//		mapar[{i,j}] = 0;
+ 	//	}
+ 	//}
+ 	for(LinkedList::iterator i = ll.begin(); i != ll.end() ;++i){
+ 		mapar[{*i,*(i+1)}]++;
+ 	}
+	cout << ContarPosiblesPares(mapar,nel) << endl;
+ 	ll.removepair(EncontrarParMasFrecuente(mapar,nel), num+1);
+ 	ll.printForward();
+ 	mapar.clear();
+ 	num++;
+ 	
+ 	
+  	
 	return 0;
 }
+
+
+int ContarPosiblesPares(std::map<pair<int,int>, int> mapar,int nel){
+	int it = 0;
+	for(int i = 1; i < nel+1; i++){
+ 		for(int j = 1; j < nel+1; j++){
+ 			 if(mapar[{i,j}]>1){
+ 			 	cout << "{" << i << ", " << j << "}" << "= " << mapar[{i,j}] << endl; 
+ 			 	it++;
+ 			 }
+ 		}
+ 	}
+ 	cout << endl;
+ 	return it;
+}
+
+pair<int,int> EncontrarParMasFrecuente(std::map<pair<int,int>, int> mapar,int nel){
+	pair<int, int> par;
+	pair<int, int> ref (0,0);
+	for(int i = 1; i < nel+1; i++){
+ 		for(int j = 1; j < nel+1; j++){
+ 			 if((mapar[{i,j}]>mapar[par])){
+ 			  par.first = i;
+ 			  par.second = j;
+ 				
+ 			 }
+ 		}
+ 	}
+ 	//cout << "{" << par.first << ", " << par.second << "}" << endl; 
+ 	return par;
+}
+

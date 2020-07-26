@@ -98,6 +98,7 @@ void LinkedList::printReverse(){
 		cout<< nd->data << " ";
 		nd = nd->prev;
 	}
+	cout<<endl;
 
 }
 void LinkedList::printForward(){
@@ -107,6 +108,26 @@ void LinkedList::printForward(){
 		cout<< nd->data << " ";
 		nd = nd->next;
 	}
+	cout<<endl;
+}
+
+void LinkedList::removepair(std::pair<int, int> par, int lim){
+	Nodo *actual= header->next;
+	while(actual!=trailer){
+		if(actual->data == par.first && actual->next->data == par.second){
+		cout << "El nodo actual es: " <<"{" << actual->data << ", " << actual->next->data << "}" << endl;
+		actual->data = lim;
+		delete actual->next;
+		actual->next = actual->next->next;
+		actual->next->prev = actual;
+		}
+	actual = actual->next;
+	}
+
+
+
+
+
 }
 
 LinkedList::iterator::self_type LinkedList::iterator::operator++() {

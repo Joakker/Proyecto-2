@@ -21,7 +21,8 @@ public:
 	void removeBack();
 	void printReverse();
 	void printForward();
-	
+	void removepair(std::pair<int, int> par, int lim);
+
 	class iterator {
 	public:
 		typedef iterator self_type;
@@ -39,6 +40,7 @@ public:
 
 	iterator begin();
 	iterator end();
+
 private:
 	Nodo *header;
 	Nodo *trailer;
