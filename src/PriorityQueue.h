@@ -13,4 +13,5 @@ class PriorityQueue {
         Pair    top();
         void    push(Pair);
         void    pop();
+        void    clear();
 };

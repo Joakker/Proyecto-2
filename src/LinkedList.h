@@ -1,3 +1,6 @@
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
+
 #include <bits/stdc++.h>
 
 class Nodo{
@@ -46,3 +49,5 @@ private:
 	Nodo *trailer;
 
 };
+
+#endif

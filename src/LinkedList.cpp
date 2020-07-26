@@ -115,7 +115,7 @@ void LinkedList::removepair(std::pair<int, int> par, int lim){
 	Nodo *actual= header->next;
 	while(actual!=trailer){
 		if(actual->data == par.first && actual->next->data == par.second){
-		cout << "El nodo actual es: " <<"{" << actual->data << ", " << actual->next->data << "}" << endl;
+		//cout << "El nodo actual es: " <<"{" << actual->data << ", " << actual->next->data << "}" << endl;
 		actual->data = lim;
 		delete actual->next;
 		actual->next = actual->next->next;

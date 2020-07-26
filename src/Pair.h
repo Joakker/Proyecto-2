@@ -10,6 +10,7 @@ struct Pair {
     LinkedList::iterator first;
     LinkedList::iterator last;
     Pair(std::pair<int,int>, int);
+    Pair();
 };
 
 

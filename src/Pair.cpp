@@ -6,3 +6,10 @@ Pair::Pair(std::pair<int,int> p, int freq) {
     this->r = p.second;
     this->freq = freq;
 }
+
+
+Pair::Pair() {
+    this->l = 0;
+    this->r = 0;
+    this->freq = 0;
+}

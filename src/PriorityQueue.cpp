@@ -2,7 +2,7 @@
 
 
 PriorityQueue::PriorityQueue() {
-    _arr.push_back(Pair({0, 0}, 0));
+    _arr.push_back(Pair());
 }
 
 PriorityQueue::~PriorityQueue() {}
@@ -49,4 +49,10 @@ void PriorityQueue::max_heapify(long unsigned int n) {
         std::swap(_arr[n], _arr[largest]);
         this->max_heapify(largest);
     }
+}
+
+
+void PriorityQueue::clear() {
+    _arr.clear();
+    _arr.push_back(Pair());
 }
