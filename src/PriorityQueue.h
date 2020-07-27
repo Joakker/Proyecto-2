@@ -27,7 +27,6 @@ class PriorityQueue {
          * true si este tiene un tamaño de 1
          * 
          * @return  Si acaso hay elementos en cola
-         * @see     size()
          */
         bool    empty();
 
