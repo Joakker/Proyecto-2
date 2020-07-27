@@ -16,13 +16,9 @@ class LinkedList{
 public:
 	LinkedList();
 	~LinkedList();
-	int getFront();
-	int getBack();
-	void addFront(int val);
 	void addBack(int val);
 	void removeFront();
 	void removeBack();
-	void printReverse();
 	void printForward();
 	void removepair(std::pair<int, int> par, int lim);
 

@@ -34,9 +34,6 @@ bool PriorityQueue::empty() {
     return _arr.size() <= 1;
 }
 
-int PriorityQueue::size() {
-    return _arr.size() - 1;
-}
 
 
 void PriorityQueue::max_heapify(long unsigned int n) {

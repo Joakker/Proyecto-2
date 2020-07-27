@@ -30,14 +30,7 @@ class PriorityQueue {
          * @see     size()
          */
         bool    empty();
-        /**
-         * El tamaño del PriorityQueue. Como el primer elemento
-         * de _arr no se usa, size() retorna _arr.size() - 1
-         * 
-         * @return  El número de elementos en cola
-         * @see     empty()
-         */
-        int     size();
+
         /**
          * Retorna el siguiente elemento en cola. Como PriorityQueue
          * relaciona los elementos por su frecuencia, éste elemento
